@@ -18,6 +18,9 @@ li { list-style: none; vertical-align:top;}
 .fi{
 	display: inline-block;
 }
+.o-f{
+  overflow: auto;
+}
 h1,
 h2,
 h3,
@@ -96,16 +99,36 @@ h6 {
 }
 
 .g-r-center {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
+    display: -webkit-box;  /* 老版本语法: Safari, iOS, Android browser, older WebKit browsers. */
+    display: -moz-box;     /* 老版本语法: Firefox (buggy) */
+    display: -ms-flexbox;  /* 混合版本语法: IE 10 */
+    display: -webkit-flex; /* 新版本语法: Chrome 21+ */
+    display: flex;         /* 新版本语法: Opera 12.1, Firefox 22+ */
+
+    -webkit-box-flex:1;  /* OLD - iOS 6-, Safari 3.1-6 */  
+    -moz-box-flex:1;     /* OLD - Firefox 19- */              
+    -webkit-flex: 1;      /* Chrome */  
+    -ms-flex: 1 ;          /* IE 10 */  
+    flex: 1;              /* NEW, Spec - Opera 12.1, Firefox 20+ */
+    box-flex:1;
+
+    align-items:center;
+    -webkit-align-items:center;
+    box-align:center;
+    -moz-box-align:center;
+    -webkit-box-align:center;
+
+    -webkit-justify-content:center;
+    justify-content:center;
+    -moz-box-pack:center;
+    -webkit--moz-box-pack:center;
+    box-pack:center;
 }
 /*页面公共css*/
 .ibox{
     margin: 0;
     padding: 0;
-		height:48px;
+		// height:48px;
 		line-height:48px!important;
 		font-size:14px!important;
 		border-top: 3px #e7eaec solid;
@@ -119,4 +142,26 @@ h6 {
 	height:1px;
 	background: #e7eaec;
 	margin:10px 0;
+}
+.el-input__inner {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #bfcbd9;
+    box-sizing: border-box;
+    color: #1f2d3d;
+    display: block;
+    font-size: inherit;
+    height: 36px;
+    line-height: 1;
+    outline: 0;
+    padding: 3px 10px;
+    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    width: 100%;
+}
+.tabelBox{
+  margin-top:25px;
 }

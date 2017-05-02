@@ -5,7 +5,7 @@
                 <template v-for="data in menuData">
                     <!--使用elementjs menu组件 渲染一级标题-->
                     <el-submenu :index="data.id">
-                        <template slot="title"><i class="el-icon-message"></i>{{data.name}}</template>
+                        <template slot="title"><i class="fa marginRight_10" :class="data.icon"></i>{{data.name}}</template>
                         <!--渲染二级标题-->
                         <template v-for="child in data.children" v-if=" data.children.length!=0 ">
                             <el-submenu :index="child.id">
@@ -42,8 +42,11 @@ export default{
     }
 }
 </script>
-<style lang='sass'>
+<style lang='sass' rel="stylesheet/scss" scoped>
     .borderNone{
         border-radius:0!important;
+    }
+    .marginRight_10{
+        margin-right:10px;
     }
 </style>
